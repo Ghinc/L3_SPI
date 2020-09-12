@@ -9,7 +9,7 @@ Version 1
 @author: Ghinevra Comiti, Johanna Fericean
 """
 
-#Exerccice 1
+#Exercice 1
 
 
 def salaire():
