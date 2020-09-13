@@ -29,10 +29,11 @@ def racine_double(a : float,b : float ,delta : float ,num : int)->float:
 
 
 
-def str_equation(a : float ,b: float,c: float):
+def str_equation(a : float ,b: float,c: float) -> string :
     """ la fonction str_equation retourne l'équation en str, si
     a ou b=0 on ne note pas les x, si c=0 on ne note pas le +"""
-
+    #before review :
+    """
     if(a==0):
         msg = ""
     else:
@@ -49,6 +50,28 @@ def str_equation(a : float ,b: float,c: float):
         msg3 =  "+"+ str(c)
 
     return( msg + msg2+ msg3 +"=0")
+    """
+    #After review :
+    """
+    Les modification apporté font que nous pouvons utiliser 1 seule variable au lieu de trois pour le return en utilisant la concaténation de la variable msg
+    """
+    msg = "" #J'initialisre la variable msg
+    if(a==0):
+        msg = msg #On pourrais juste ne rien faire ici mais on dis juste que msg ne change pas
+    else:
+        msg = str(a) + "x²" #sinon j'initialise msg
+
+    if(b==0):
+        msg = msg #msg ne change pas
+    else:
+        msg += "+" + str(b) + "x" #sinon je concatène avec la suite de l'expression
+
+    if(c==0):
+        msg = msg #msg ne change pas
+    else :
+        msg +=  "+"+ str(c) #sinon je concatène avec la suite de l'expression
+
+    return(msg, "=0")
 
 def solution_equation(a:float,b:float,c:float)->str:
     """ la fonction solution_equation retourne le nombre de racine"""
@@ -84,6 +107,7 @@ def test():
     print(equation(1, 2, 1))
 
 test()
+print(equation(1,25,1))
 
 
 

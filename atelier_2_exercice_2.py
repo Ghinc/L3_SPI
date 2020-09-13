@@ -4,6 +4,8 @@
 #date : 08/09/2020
 #version : 1
 #description : atelier 2 L3
+
+#review par Axel Frau
 """
 
 #exercice 2
@@ -14,9 +16,17 @@ def est_bissextile(année:int)->bool :
     divisible par 400"""
 
     if((année%4==0)and(année%100!=0))or(année%400==0):
-        return(True)
+        #Before : return (True) => "()" sont inutiles ici
+        #after : 
+        return True
     else :
-        return(False)
+        #Before : return (False) 
+        #after : 
+        return False
+
+    #de plus nous pouvons evité le if else ici en faisant :
+    # return ((année%4 == 0 and année%100!=0) or année%400 == 0 )
+    #Cette expréssion boolèenne sera soit True soit False nous permettant de return directement un booléen au lieu de passer par un if else.
 
 def test():
     """fonction destinée à tester la fonction est_bissextile"""
@@ -25,6 +35,3 @@ def test():
     print("test année bissextile divisible par 400 : ", est_bissextile(400))
     
 test()
-    
-    
-
