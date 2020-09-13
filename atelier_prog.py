@@ -42,7 +42,7 @@ def asci():
     car=(input("Entrez le caractère désiré"))
     code=ord(car) #trouve le code ascii du caractère
     if(code< FIN_CAR_SPEC): #si le code ascii est inférieur à 33
-         print("c'est un contrôle")
+         print("c'est un contrôle")#l'exercice ne demandait pas de differencier les caracteres des controles normalement
     elif(DEB_CHIFFRES<code<FIN_CHIFFRES): #si le code correspond à un chiffre
          print("c'est un chiffre")
     elif(DEB_MAJ<code<FIN_MAJ):
