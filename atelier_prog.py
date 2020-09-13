@@ -7,12 +7,18 @@ Fontions demandées dans l'atelier numéro 1
 Version 1
 
 @author: Ghinevra Comiti, Johanna Fericean
+@reviewer: Axel Frau
+"""
+
+"""
+REVIEW :
+Ligne 21, ligne 33, ligne 34, 
 """
 
 #Exercice 1
 
 
-def salaire():
+def salaire() : #-> float: #preciser le type de la variable à return
     """calcule le salaire selon le nombre d'heures effectuées"""
     PALIER_HEURES_1=160
     PALIER_HEURES_2=200
@@ -24,13 +30,13 @@ def salaire():
         total+=tx_hor*MAJORATION*(nb_heures-PALIER_HEURES_1) #majorations heures supp entre 160 et 200
         if(nb_heures>PALIER_HEURES_2):  #majoration heures supp supérieures à 200
             total+=(nb_heures-PALIER_HEURES_2)*tx_hor*MAJORATION
-    return(total)
+    return(total) #return(total) dans le return inutile => return total
         
 #salaire()
 """appel de la fonction salaire"""
         
 #Exercice2
-def asci():
+def asci(): #voir ligne 21
     """indique la catégorie de chaque caractère en fonction de son code ascii"""
     FIN_CAR_SPEC=33 #code de fin des caractères spéciaux
     DEB_CHIFFRES=47 #code de début des chiffres
@@ -39,7 +45,7 @@ def asci():
     FIN_MAJ=91
     DEB_MIN=96 #code de début des lettres minuscules
     FIN_MIN=123
-    car=(input("Entrez le caractère désiré"))
+    car=(input("Entrez le caractère désiré")) #??? Parenthèse inutile =>  car= input("Entrez le caractère désiré")
     code=ord(car) #trouve le code ascii du caractère
     if(code< FIN_CAR_SPEC): #si le code ascii est inférieur à 33
          print("c'est un contrôle")#l'exercice ne demandait pas de differencier les caracteres des controles normalement
@@ -56,12 +62,9 @@ def asci():
 """appel de la fonction asci"""
          
 
-    
-         
-         
 #Exercice 3
 
-def impots():
+def impots(): #voir ligne 21
     """détermine si l'habitant est imposable
     sexe=1: homme, sexe=2: femme"""
     AGE_MIN_H=20 #âge minimum pour qu'un homme soit imposable
@@ -81,7 +84,7 @@ def impots():
 
 #Exercice 4
 
-def repro():
+def repro(): #voir ligne 21
     """calcul le coût de la reproduction de photos"""
     """nb_photo est de type entier"""
    
@@ -108,7 +111,7 @@ def repro():
 
 #Exercice 5
 
-def voilier():
+def voilier(): #voir ligne 21
     """détermination du coût annuel de la place de port du bateau"""
     PALIER_LONG_1=4 #petit bateau
     PALIER_LONG_2=10 #bateau moyen
@@ -156,7 +159,7 @@ def voilier():
 
 #Exercice 6
 
-def voiture():
+def voiture(): #voir ligne 21
     """fonction calculant le coût de consommation et d'entretien d'une voiture"""
     LIMITE_CYL=2000
     CONS_CARB_GC=10 #coût de l'essence pour les petites cylidrées pour 100 km
@@ -195,7 +198,7 @@ def voiture():
 
 
     
-def tri(liste):
+def tri(liste): #voir ligne 21
     """algorithme de tri par insertion """
     x=0
     for i in range (0, len(liste)):
@@ -206,7 +209,7 @@ def tri(liste):
                 liste[j]=x
     return liste
 
-def elections():
+def elections(): #voir ligne 21
     """fonction qui gère les élections municipales"""
     NOMBRE_CANDIDATS=4 #nombre de candidats participants à l'élection
     SCORE_GAGNANT=50 #score nécessaire pour gagner au premier tour
@@ -240,7 +243,7 @@ elections()
 
 #exercice 8
 
-def assurance():
+def assurance(): #voir ligne 21
     """cette fonction calcule si le conducteur est assurable ou non, et, si oui,
     quel sera son tarif. Pour cela, elle se base sur un système de compatge de points,
     chaque score correspondant à une couleur."""
@@ -252,12 +255,28 @@ def assurance():
     #l'ancienneté(en année) nécessaire pour avoir la couleur supérieure
     ANCIENNETE_MIN_ASSUR = 1
     # les différents tarifs sont associés à un score numérique dans un dico
+    """
+    On peut remplacer : 
     tarifs = dict()
     tarifs[-1]= "pas assuré" #si l'individu a -1 point il n'est pas assuré
     tarifs[0] = "tarif rouge"# si l'individu a 0 point il a le tarif rouge etc
     tarifs[1] = "tarif orange"
     tarifs[2] = "tarif vert"
     tarifs[3]= " tarif bleu"
+
+    par : 
+    tarifs =["tarif rouge", "tarif orange", "tarif vert","tarif bleu","pas assuré"] 
+               #[0]            #[1]            #[2]           #[3]         #[-1]
+
+    Je ne vois pas comment il peuvent atteindre le tarif bleu besoin de plus de clarté la 
+    dedans car il n'est pas m'entionner dans les commentaires.
+    """
+    tarifs = dict()
+    tarifs[-1]= "pas assuré" #si l'individu a -1 point il n'est pas assuré
+    tarifs[0] = "tarif rouge"# si l'individu a 0 point il a le tarif rouge etc
+    tarifs[1] = "tarif orange"
+    tarifs[2] = "tarif vert"
+    tarifs[3]= "tarif bleu"
 
     #initialisation de la variable nb_points
     nb_points = -1
@@ -291,28 +310,13 @@ def assurance():
             nb_points+=1
 
     if (anciennete_client >= ANCIENNETE_MIN_ASSUR):
+        """
+        Si il a un tarif bleu alors il passera de "[3]" à "[4]" qui dans ce vous avez fait est "pas assuré"
+        car dans votre dictionnaire [4] = [-1] donc il faut vérifier qu'il n'est pas bleu avant de faire ça.
+        """
         #si le client est assuré depuis au moins 1 an il gagne un point pour avoir le tarif supérieur
         nb_points+=1
 
     print(tarifs[nb_points])
 
 assurance()
-
-   
-            
-    
-        
-    
-      
-
-
-    
-    
-            
-    
-
-
-        
-    
-     
-         
